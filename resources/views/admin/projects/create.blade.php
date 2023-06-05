@@ -8,7 +8,7 @@
 
         <h5 class="text-uppercase text-muted my-4">Add a new Project</h5>
 
-        <form action="" method="post">
+        <form action="{{route('admin.projects.store')}}" method="post">
             @csrf
 
             <div class="mb-3">
@@ -16,17 +16,6 @@
                 <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Project title here " aria-describedby="nameHelper">
 
                 @error('title')
-                <div class="alert alert-danger" role="alert">
-                    <strong>Errore: </strong>{{$message}}
-                </div>
-                @enderror
-
-            </div>
-            <div class="mb-3">
-                <label for="slug" class="form-label">Slug</label>
-                <input type="text" name="slug" id="slug" class="form-control @error('slug') is-invalid @enderror" placeholder="Project Slug here " aria-describedby="nameHelper">
-
-                @error('slug')
                 <div class="alert alert-danger" role="alert">
                     <strong>Errore: </strong>{{$message}}
                 </div>
