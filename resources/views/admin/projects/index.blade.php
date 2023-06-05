@@ -1,37 +1,71 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="container-fluid bg-light py-3">
+    <h5>Add new Project</h5>
+    <a href="{{route('admin.projects.create')}}"><i class="fa-solid fa-plus fa-2x"></i></a>
 
-<div class="table-responsive">
-    <table class="table table-striped
-    table-hover	
-    table-borderless
-    table-primary
-    align-middle">
-        <thead class="table-light">
+    <table class="table table-striped m-0 py-5">
+        <thead>
             <tr>
-                <th>Title</th>
-                <th>Slug</th>
-                <th>img_path</th>
-                <th>stack</th>
-                <th>action</th>
+                <th scope="col">Title</th>
+                <th scope="col">Slug</th>
+                <th scope="col">img_path</th>
+                <th scope="col">stack</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
-        <tbody class="table-group-divider">
+
+        <tbody>
+
             @forelse ($projects as $project)
-            <tr class="table-primary">
-                <td scope="row">{{$project->title}} </td>
+            <tr>
+                <td scope="row">{{$project->title}}</td>
                 <td>{{$project->slug}}</td>
                 <td>{{$project->img_path}}</td>
                 <td>{{$project->stack}}</td>
-                <td>VIEW/EDIT/DELETE</td>
+                <td>
+                    <a href=""><i class="fa-solid fa-eye"></i></a>
+                    <a href=""><i class="fa-solid fa-pencil"></i></a>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalId-">
+                        <i class="fa-solid fa-trash-can" style="color: #dc3545"></i>
+                    </button>
+
+
+                    <!-- Modal -->
+                    <!--                     <div class="modal fade" id="modalId-" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                        <div class="modal-dialog" role="dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="modalTitleId">Delete Project</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure to delete this project?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <form action="" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Confirm</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </td>
             </tr>
+
             @empty
-            <p>No project here</p>
-            @endforelse
+            <p>No projects</p>
         </tbody>
+        @endforelse
     </table>
+
+
+
 </div>
-
-
 @endsection
