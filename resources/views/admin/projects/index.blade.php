@@ -22,7 +22,7 @@
             <tr>
                 <td scope="row">{{$project->title}}</td>
                 <td>{{$project->slug}}</td>
-                <td>
+                <td class="text-center">
                     <img class="img-fluid" style="height: 100px;" src="{{$project->img_path}}" alt="{{$project->title}}" loading="lazy">
                 </td>
                 <td>{{$project->stack}}</td>
