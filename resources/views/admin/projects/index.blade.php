@@ -28,7 +28,7 @@
                 <td>{{$project->stack}}</td>
                 <td>
                     <a href=""><i class="fa-solid fa-eye"></i></a>
-                    <a href="{{route('admin.projects.edit', $project->id)}}"><i class="fa-solid fa-pencil"></i></a>
+                    <a href="{{route('admin.projects.edit', $project->slug)}}"><i class="fa-solid fa-pencil"></i></a>
                     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalId-">
                         <i class="fa-solid fa-trash-can" style="color: #dc3545"></i>
                     </button>

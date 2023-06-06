@@ -8,7 +8,7 @@
 
         <h5 class="text-uppercase text-muted my-4">Edit a Project</h5>
 
-        <form action="" method="post">
+        <form action="{{route('admin.projects.update', $project->id)}}" method="post">
             @csrf
             @method('PUT')
 
