@@ -28,14 +28,14 @@
                 <td>{{$project->stack}}</td>
                 <td>
                     <a href=""><i class="fa-solid fa-eye"></i></a>
-                    <a href="{{route('admin.projects.edit', $project->slug)}}"><i class="fa-solid fa-pencil"></i></a>
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalId-">
+                    <a href="{{route('admin.projects.edit', $project->id)}}"><i class="fa-solid fa-pencil"></i></a>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalId-$project->id">
                         <i class="fa-solid fa-trash-can" style="color: #dc3545"></i>
                     </button>
 
 
                     <!-- Modal -->
-                    <!--                     <div class="modal fade" id="modalId-" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                    <div class="modal fade" id="modalId-$project->id" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
                         <div class="modal-dialog" role="dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <form action="" method="post">
+                                    <form action="{{route('admin.projects.destroy', $project->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit">Confirm</button>
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
                 </td>
             </tr>
