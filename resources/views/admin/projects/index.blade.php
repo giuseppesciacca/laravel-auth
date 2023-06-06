@@ -23,11 +23,11 @@
                 <td scope="row">{{$project->title}}</td>
                 <td>{{$project->slug}}</td>
                 <td>
-                    <img class="img-fluid" style="height: 100px;" src="{{$project->img_path}}" alt="{{$project->title}}">
+                    <img class="img-fluid" style="height: 100px;" src="{{$project->img_path}}" alt="{{$project->title}}" loading="lazy">
                 </td>
                 <td>{{$project->stack}}</td>
                 <td>
-                    <a href=""><i class="fa-solid fa-eye"></i></a>
+                    <a href="{{route('admin.projects.show', $project->id)}}"><i class="fa-solid fa-eye"></i></a>
                     <a href="{{route('admin.projects.edit', $project->id)}}"><i class="fa-solid fa-pencil"></i></a>
                     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalId-$project->id">
                         <i class="fa-solid fa-trash-can" style="color: #dc3545"></i>
