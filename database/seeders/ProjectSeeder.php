@@ -5,26 +5,29 @@ namespace Database\Seeders;
 use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 class ProjectSeeder extends Seeder
 {
+
+
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
-            $project = new Project();
-            $project->title = $faker->sentence(4);
-            $project->slug = Str::slug($project->title, '-');
-            $project->description = $faker->paragraphs(asText: true);
-            $project->img_path = $faker->imageUrl(category: 'Projects', format: 'jpg');
-            $project->stack = $faker->sentence(5);
-            $project->save();
+        $projects = config('projects_db');
+
+        foreach ($projects as $project) {
+            $newproject = new Project();
+            $newproject->title = $project['title'];
+            $newproject->slug = Str::slug($project['title'], '-');
+            $newproject->description = $project['description'];
+            $newproject->img_path = $project['img_path'];
+            $newproject->stack = $project['stack'];
+            $newproject->save();
         }
     }
 }
