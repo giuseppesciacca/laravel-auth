@@ -1,8 +1,5 @@
 @extends('layouts.admin')
 
-<style>
-</style>
-
 @section('content')
 <div class="container p-5">
     <div class="row row-cols-1 row-cols-lg-2">

@@ -22,5 +22,6 @@
             </div>
         </div>
     </div>
+    <a name="" id="" class="btn btn-primary my-3" href="{{'admin/projects'}}" role="button">Vai ai progetti</a>
 </div>
 @endsection
